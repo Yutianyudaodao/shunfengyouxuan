@@ -1,0 +1,252 @@
+@mixin font-set($size:12px,$weight:500,$height:24px,$color:#323232,$style:left){
+    font-size:$size;
+    font-weight:$weight;
+    line-height:$height;
+    color:$color;
+    text-align:$style;
+}
+@mixin border_style($w:1px,$s:solid,$c:#ccc){
+    border:$w $s $c;
+}
+@mixin border-radius($radius:5px){
+    border-radius:$radius;
+    -webkit-border-radius:$radius;
+    -ms-border-radius:$radius;
+    -o-border-radius:$radius;
+    -moz-border-radius:$radius;
+}
+@mixin size($w,$h){
+    width:$w;
+    height:$h;
+}
+@mixin opa($opa:0.5){
+    opacity:$opa;
+    $ieopacity:$opa*100;
+    filter: alpha(opacity=$ieopacity);
+}
+.wrapper-login{
+    width:1000px;
+    margin:0 auto;
+    position:relative;
+    height:1000px;
+    // box-shadow: 0 0 1px 1px #eee;
+}
+.welcome{
+    height:55px;
+    padding:10px 0;
+    position: relative;
+    a.logo{
+        display:inline-block;
+        @include size(310px,75px);
+        font-size: 0;
+        img{
+            width:100%;
+        };
+    }
+    span{
+        display:inline-block;
+        height:70px;     
+        position: absolute;
+        top:10px;   
+        @include font-set(18px,500 ,70px ,#515151 );
+        a{color:#515151};
+    }
+}
+div.content{
+    min-height:500px;
+    div.pic{
+        width:540px;
+        height:390px;
+        margin-top: 14px;
+        a{
+            display:block;
+            font-size:0;
+        }
+        img{
+            margin-top:32px;
+        };
+    }
+    div.login{
+        width:400px;
+        min-height:100px;
+    }
+    .header{
+        height:50px;
+        span{
+            display:inline-block;
+            height:50px;
+            @include font-set(16px,500 ,50px ,#515151);
+        }
+        a.zhuce{
+            display: block;
+            @include size(70px,25px);
+            @include font-set(12px,500 ,25px ,#515151,center);
+            @include border_style($c:#34b742);
+            margin-top: 12px;
+        }
+    }
+    .biao{
+        @include size(400px,434px);
+        @include font-set(12px,500 ,1.4em ,#515151);
+        @include border_style($c:#cdcdcd);
+        .login-nav{
+            height:30px;
+            ul>li{
+                float: left;
+                width:132px;
+                height:30px;
+                @include font-set(14px,500 ,30px ,#515151,center);
+                border-right: 1px solid #cdcdcd;
+                border-bottom: 1px solid #cdcdcd;
+                em{
+                    display:inline-block;
+                    @include size(15px,15px);
+                    background:url(../img/loginicon.png) no-repeat;
+                    margin:9px 5px 0 0px;
+                    
+                }
+                a{
+                    color:#515151;
+                    display:inline-block;
+                    height:30px;
+                    position: relative;
+                    top:-3px;
+                }
+        
+            }
+            li.youxuan{
+                border-bottom: 1px solid #fff;
+                border-top:2px solid #69af05;
+                position: relative;
+                top:-2px;
+            }
+            li.shunshou em{
+                background-position-y:-25px; 
+            }
+            li.suyun{
+                border-right: 0;
+                em{
+                    background-position-y:-48px; 
+                }
+            }
+        }
+        form{
+            width:324px;
+            min-height:280px;
+            margin: 0 auto;
+            position: relative;
+            div.info p.title{
+                height:26px;
+                line-height: 26px;
+                margin-top: 20px;
+            }
+            div.info p.input{
+                @include size(320px,36px);
+                @include border_style($c:#cdcdcd);
+                input{
+                    height:100%;
+                    border:0;
+                    outline: none;
+                    font-size: 18px;
+                    text-indent: 15px;
+                }
+                em{
+                    display:block;
+                    @include size(38px,30px);
+                }
+            }
+            em.name{
+                background:url(../img/icon1.jpg) center no-repeat;
+            }
+            em.password{
+                background:url(../img/icon2.jpg) center no-repeat;
+            }
+            div.yanzhengma{
+                border:0;
+                margin: 20px 0 10px;
+                input{
+                    @include size(94px,36px);
+                    @include border_style($c:#cdcdcd);
+                    position: relative;
+                    font-size: 20px;
+                    outline: none;
+                    text-indent: 15px;
+                    
+                }
+                span{
+                    width:106px;
+                    height:36px;
+                    border:1px solid #ccc;
+                    margin-left: 10px;
+                    vertical-align: middle;
+                    cursor:pointer;
+                    @include font-set(20px,500 ,36px ,orange,center );
+                }
+                em{
+                    position:relative;
+                    font-style:normal;
+                    left:-20px;
+                    @include font-set(16px,500 ,36px ,red,);
+                }
+            }
+            div.tishi{
+                height:25px;
+                margin:10px 0;
+                @include font-set(16px,500 ,25px ,orange,);
+                text-indent:20px;
+
+            }
+            a.forget{
+                display: block;
+                @include font-set(12px,500 ,1.4em ,#515151);
+        
+            }
+            input.submit{
+                width:324px;
+                height:41px;
+                border:0;
+                margin:10px auto;
+                background:url(../img/login_bg.jpg) left top no-repeat ;
+                @include border-radius(4px);
+                @include font-set(18px,500 ,41px ,#f2f1f1,center);
+                
+            }
+        }
+        .way{
+            height:56px;
+            border-top:1px solid #cdcdcd;
+
+        }
+        .way ul>li{
+            float: left;
+            width:98px;
+            height:36px;
+            margin:10px 0;
+            border-right: 1px solid #e1e1e1;
+            a{
+                display: block;
+                height:16px;
+                @include font-set(12px,500 ,16px ,#515151,center);
+            }
+        }
+        .way ul>li.weixin{
+            border-right: 0;
+        }
+        .way ul>li em{
+            display:block;
+            width:20px;
+            height:20px;
+            margin:0 auto;
+            background: url(../img/logo-icon.jpg) no-repeat;
+        }
+        .way ul>li em.weibo{
+            background-position-x:-21px;            
+        }
+        .way ul>li em.zhifubao{
+            background-position-x:-63px;           
+        }
+        .way ul>li em.weixin{
+            background-position-x:-84px;            
+        }
+    }
+}

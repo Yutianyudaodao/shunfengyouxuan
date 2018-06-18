@@ -1,0 +1,450 @@
+@mixin font-set($size:12px,$weight:500,$height:24px,$color:#323232,$style:left){
+    font-size:$size;
+    font-weight:$weight;
+    line-height:$height;
+    color:$color;
+    text-align:$style;
+}
+@mixin border_style($w:1px,$s:solid,$c:#ccc){
+    border:$w $s $c;
+}
+@mixin border-radius($radius:5px){
+    border-radius:$radius;
+    -webkit-border-radius:$radius;
+    -ms-border-radius:$radius;
+    -o-border-radius:$radius;
+    -moz-border-radius:$radius;
+}
+@mixin size($w,$h){
+    width:$w;
+    height:$h;
+}
+@mixin opa($opa:0.5){
+    opacity:$opa;
+    $ieopacity:$opa*100;
+    filter: alpha(opacity=$ieopacity);
+}
+.footer{
+    margin-top: 20px;
+}
+.footer .wrapper{
+    p.none{
+        position: relative;
+        height:20px;
+        span{
+            display: inline-block;
+            @include size(100px,20px );
+            background: #fff;
+            position: absolute;
+            left:50%;
+            top:0;
+            margin-left: -50px;
+            @include font-set(14px,500 ,14px ,#969696 ,center );
+        }
+        
+        b{
+            display: inline-block;
+            @include size(300px,1px );
+            background: #f5f5f5;
+            position: absolute;
+            left:50%;
+            top:7px;
+            margin-left: -150px;
+
+        }
+    }
+    a.top-image{
+        display:block;
+        margin: 25px 0;
+        font-size: 0;
+        img{
+            width:1200px;
+            height:100px;
+        }
+    }
+
+    %h3-header{
+        height:25px;
+        @include font-set(16px,600 ,25px ,#323232 );
+        padding: 15px 0 10px;
+    }
+    %content-style{
+        padding: 20px 0;
+        border-top:1px solid #E8E8E8;
+        border-bottom:1px solid #E8E8E8;
+    }
+    %image-style{
+        display: block;
+        font-size: 0;
+        margin-right: 10px;
+        img{
+            @include size(170px,100px );
+        }
+    }
+    div.notes>div{
+        margin-right:20px;
+    }
+    div.notes div.zuo{
+        @include size(400px,200px );
+        h3{
+            @extend %h3-header;
+        }
+        div.content{
+            @extend %content-style;
+            a.tupian{
+                @extend %image-style;
+            }
+            ul li a{
+                padding-left: 10px;
+                @include font-set(12px,500 ,12px ,#646464 );
+                background: url(../img/dian.jpg) no-repeat 0 7px;
+            
+            }
+        }
+    }
+    div.notes div.middle{
+        @include size(400px,200px );
+        h3{
+            @extend %h3-header;
+        }
+        div.content_box{
+            @extend %content-style;
+            height:147px;
+            padding:0;
+            position:relative;
+            overflow:hidden;
+        }
+        div.liebiao{
+            position:absolute;
+            left:0;
+            bottom:0;
+        }
+        div.liebiao div.gundong{
+            height:51px;
+            padding:11px 0;
+            border-bottom: 1px dotted #e8e8e8;
+            vertical-align: middle;
+            
+            a.tupian{
+                @extend %image-style;
+                img{
+                    @include size(50px,50px );
+                }
+            }
+            div.info{
+                @include size(320px,22px );
+                margin-left: 10px;
+                p{
+                    height:22px;
+                    overflow:hidden;
+                    @include font-set(12.5px,500 ,22px ,#646464);
+                    a:hover{
+                        text-decoration: underline;
+                    }
+                }
+                p.orange a{color:#FA9600};
+                p.grey a{color:#646464};
+            }
+        } 
+    }
+    div.notes div.faxian{
+        @include size(358px,196px );
+        @include border_style($c:#E8E8E8);
+        margin-right: 0;        
+        h3{
+            @extend %h3-header;
+            text-indent: 45px;
+            width:322px;
+            margin:0 auto;
+            border-bottom: 1px solid #E8E8E8; 
+            background: url(../img/youpin.jpg) no-repeat 15px 20px;
+            position: relative;
+            a{
+                display: block;
+                @include size(69px,14px );
+                background: url(../img/foot_bottom.png) no-repeat -3px -105px;
+                position: absolute;
+                top:22px;
+                right:0;
+            }
+            a:hover{
+                background-position-y: -131px
+            }
+        }
+        div.content{
+            width:322px;
+            margin:0 auto;
+            padding:15px 0 0 0;
+            input{
+                @include size(132px,22px );
+                padding: 0 2px;
+                color:#969696;
+                @include border_style();
+        
+            }
+            span.address{
+                display:inline-block;
+                @include size(50px,22px );
+                @include border_style();
+                @include font-set(12px,500 ,22px ,#666 );
+                text-indent: 5px;
+                position: relative;                
+                top:1px;
+            }
+            span.dingyue{
+                display:inline-block;
+                @include size(44px,24px );
+                background: url(../img/foot_bottom.png) no-repeat -118px -106px;
+                position: relative;
+                top:6.5px;
+                left:2px;
+            }
+            span.more{
+                @include font-set(13px,500 ,25px ,#656565 );
+                
+            }
+        }
+    }
+    div.huitiao{
+        margin: 10px 0 10px;
+        background: #F5F5F5;
+        div{
+            height:120px;
+            width:25%;
+        }
+        div.div1{
+            background: url(../img/f1.png) no-repeat center center;
+        }
+        div.div2{
+            background: url(../img/f2.png) no-repeat center center;
+        }
+        div.div3{
+            background: url(../img/f3.png) no-repeat center center;
+        }
+        div.div4{
+            background: url(../img/f4.png) no-repeat center center;
+        }
+    }
+    div.footer-di-1 .zuo{
+        @include size(290px,145px );
+        margin:20px 0 10px;
+        background: url(../img/logo.jpg) no-repeat left top;
+        ul{
+            padding-top: 85px;
+            li{
+                @include font-set(12px,500 ,18px ,#969693)
+            }
+            li.phone{
+                @include font-set(20px,bold ,30px ,#646464)
+            }
+        }
+    }
+    div.footer-di-1 .middle{
+        width:645px;
+        margin-top: 35px;
+        ul{
+            width:120px;
+            margin-right: 8px;
+            li{
+                height:24px;
+                @include font-set(12px,500 ,24px ,#646464);
+                a{color:#646464}
+            }
+            li.title{
+                @include font-set(14px,600 ,24px ,#707070);
+            }
+        }
+    }
+    div.footer-di-1 .you{
+        @include size(235px,145px );
+        margin-top: 35px;
+        ul li.title{
+            width:80px;
+            @include font-set(14px,bold ,24px ,#666 ,center );
+            a{color:#666};
+            margin:0 36px 8px 0;
+        }
+        ul li.ma{
+            @include size(80px,80px );
+            background:url(../img/foot_bottom.png) no-repeat 0px 0px;
+        }
+    }
+    div.footer-di-2{
+        height:50px;
+        padding: 15px 0 20px;
+        border-top: 1px solid #E0E0E0;
+    }
+    div.footer-di-2 ul.zuo li{
+        @include size(94px,33px );
+        float:left;
+        margin-right: 10px;
+        a{
+            display:block;
+            font-size: 0;
+        }
+        img{
+            @include size(94px,33px )
+        }
+    }
+    div.footer-di-2 ul.you{
+        width:600px;
+        li{
+            float: left;
+            margin-left: 13px;
+            @include font-set(12px,500 ,18px ,#969693);
+        }
+        li.shense a{
+            color:#646464;
+        }
+        li.renzheng a{
+            color:#969693;
+        }
+        li.lv a:hover{
+            color:#76ac25;
+        }
+
+    }
+}
+.louti{
+    @include size(44px,300px );
+    position: fixed;
+    right:10px;
+    bottom:20px;
+    ul{z-index:200}
+    ul li{
+        margin-top: 10px;
+        @include size(42px,42px );
+        
+        a{
+            display:block;
+            font-size:0;
+            @include size(42px,42px );
+            @include border_style();
+            @include opa(0.9);
+        }
+        a.zuanshi{
+            background:url(../img/paid_bg.png) no-repeat -41px -182px;
+        }
+        a.cart{
+            background:url(../img/productList.png) no-repeat 0 -45px;
+        }
+        a.cart:hover{
+            background-position-y:-148px; 
+        }
+        a.jilu{
+            background:url(../img/productList.png) no-repeat -42px -82px;
+        }
+        a.jilu:hover{
+            background-position-y:-184px; 
+        }
+        a.app{
+            background:url(../img/productList.png) no-repeat -42px -40px;
+        }
+        a.app:hover{
+            background-position-y:-142px; 
+        }
+        a.zan{
+            background:url(../img/sf_new_bg.png) no-repeat 0 -27px;
+        }
+        a.zan:hover{
+            background-position-y:-69px; 
+        }
+        a.go-top{
+            background:url(../img/productList.png) no-repeat 0 -82px;
+        }
+        a.go-top:hover{
+            background-position-y:-184px; 
+        }
+        
+    }
+    div.cang{
+        width:370px;
+        height:395px;
+        position:absolute;
+        left:-380px;
+        top:-50px;
+        overflow:hidden;
+
+    }
+}
+.cang div.cart{
+    width:330px;
+    height:355px;
+    padding:20px;
+    position:absolute;
+    left:370px;
+    display:none;
+    @include border_style($c:#dadada);
+    background:#fff;
+    h4{
+        height:26px;
+        border-bottom:2px solid green;
+        @include font-set(14px,500,26px,#ccc)
+    }
+    .content{
+        height:258px;
+    }
+    .liebiao{
+        height:44px;
+        padding:10px 0;
+        border-bottom:1px solid #eee;
+        a.left{
+            display:block;
+            @include size(40px,40px );
+            @include border_style($c:#ddd);
+            img{
+                @include size(40px,40px );
+            }
+        }
+        div.info{
+            margin-left:5px;
+            @include size(200px,40px );
+            p.title{
+                @include font-set(14px,500,20px,#999);
+                a{color:#222}
+            }
+            div.weight{
+                @include font-set(12px,500,15px,#aaa);
+            }
+        }
+        div.price_box{
+            position:relative;
+            @include size(70px,40px );
+            p.jiage{
+                @include font-set(10px,500,16px,#ccc);
+                text-align:right;
+                
+            }
+            span.price{
+                @include font-set(15px,600,16px,orange);
+            }
+            a{
+                @include font-set(14px,500,20px,#999);
+                position:absolute;
+                right:0
+            }
+        }
+    }
+    .bottom{
+        height:70px;
+        @include font-set(14px,500,20px,#ccc)
+
+        span.num,span.wei,{
+            @include font-set(17px,500,20px,orange)
+
+        }
+        span.sum{
+            @include font-set(20px,500,22px,orange)
+
+        }
+        .right a{
+            display:block;
+            @include size(110px,28px );
+            @include font-set(15px,500,28px,#fff,center)
+            background:orange;
+            @include border-radius(5px);
+
+        }
+
+    }
+}
