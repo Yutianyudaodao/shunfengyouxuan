@@ -1,0 +1,382 @@
+@mixin font-set($size:12px,$weight:500,$height:24px,$color:#323232,$style:left){
+    font-size:$size;
+    font-weight:$weight;
+    line-height:$height;
+    color:$color;
+    text-align:$style;
+}
+@mixin border_style($w:1px,$s:solid,$c:#ccc){
+    border:$w $s $c;
+}
+@mixin border-radius($radius:5px){
+    border-radius:$radius;
+    -webkit-border-radius:$radius;
+    -ms-border-radius:$radius;
+    -o-border-radius:$radius;
+    -moz-border-radius:$radius;
+}
+@mixin size($w,$h){
+    width:$w;
+    height:$h;
+}
+@mixin opa($opa:0.5){
+    opacity:$opa;
+    $ieopacity:$opa*100;
+    filter: alpha(opacity=$ieopacity);
+}
+.header-top{
+    background:#f7f7f7;
+    .wrapper{
+        width:980px;
+    }
+}
+body{min-height:2000px}
+.wrapper-cart{
+    width:1000px;
+    margin:0 auto;
+    position:relative;
+    height:1000px;
+}
+.head{
+    height:104px;
+    .logo{
+        width:246px;
+        .top a.zuo{
+            display:inline-block;
+            @include size(124px,66px);
+            background:url(../img/indexImg20130307.png?v=1.5) -33px 0px no-repeat;
+        }
+        .top a.you{
+            display:inline-block;
+            @include size(116px,66px);
+            background:url(../img/indexImg20130307.png?v=1.5) -160px 0px no-repeat;
+        }
+        .bottom{
+            @include size(244px,25px);
+        }
+    }
+    .progress{
+        margin-top:30px;
+        @include size(650px,33px);
+        
+    }
+}
+.cart-head{
+    height:36px;
+    margin-bottom:10px;
+    h3{
+        display:inline;
+        @include font-set(20px,600 ,26px ,#565656 );
+    }
+    span.song{
+        @include font-set(14px,600 ,26px ,#565656 );
+        margin:0 5px 0 10px;
+    }
+    span.address{
+        display: inline-block;
+        text-indent: 4px;
+        @include size(86px,23px);
+        @include font-set(12px,500 ,23px ,#565656 );
+        @include border_style($c:#CECBCE );
+        margin-right: 10px;
+    }
+    span.tishi{
+        @include font-set(12px,500 ,23px ,#565656 );        
+    }
+}
+.cart-title{
+    height:34px;
+    background:#81A84A;
+    div.quanxuan{
+        width:70px;
+        input{
+            position: relative;
+            top:2px;
+        }
+    }
+    div.goods{
+        width:280px;
+    }
+    div.price,div.youhui,div.weight,div.xiaoji{
+        width:100px;
+    }
+    div.number,div.caozuo{
+        width:90px;
+    }
+    div.kucun{
+        width:70px;
+    }
+}
+.cart-title>div{
+    float: left;
+    height:34px;
+    @include font-set(12px,600 ,34px ,#fff ,center )
+}
+.youxuan{
+    height:35px;
+    @include font-set(12px,500 ,35px ,#222);
+    text-indent: 14px;
+    background: #f2f6ed;
+    input{
+       position: relative;
+       top:2px;
+    }
+}
+.manzeng{
+    height:35px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #dcdcdc;
+    @include font-set(12px,500 ,35px ,#9e9e9e);
+    span.manzeng{
+        margin-left: 80px;
+        display:inline-block;
+        @include size(56px,20px );
+        @include font-set(12px,500 ,20px ,#ff6565,center);
+        @include border_style($c:#ff6565 );
+    }
+    span.zaimai{
+        padding:0 10px;
+    }
+    span.coudan{
+        a{color:#669900};
+    }
+}
+.goods-list{
+    min-height:62px;
+}
+.good{
+    height:62px;
+    padding:20px 0;
+    border-bottom: 1px solid #EBF7EF;
+    input.check{
+        position: relative;
+        top:26px;
+        left:32px;
+        
+    }
+    a.img{
+        display:block;
+        @include size(64px,64px);
+        @include border_style($c:#EBF7EF );
+        margin-left:64px;
+        img{
+            width:100%
+        }
+    }
+    a.title{
+        display: block;
+        @include size(196px,20px);
+        @include font-set(12px,500 ,20px ,#565656);
+        margin-left: 10px;
+    }
+    div.price,div.xiaoji{
+        @include size(100px,20px);
+        @include font-set(12px,600 ,20px ,#6B6B6B,center);
+    }
+    div.xiaoji{color:#EA5404};
+    div.num{
+        @include size(55px,20px);
+        margin:0 18px;
+        a{
+            display: block;
+            @include size(12px,14px);
+            @include border_style($c:#cacaca );
+            color:#7d7d7d;
+            background: #eee;
+            text-align: center;
+            line-height: 14px;
+        }
+        input{
+            display: inline-block;
+            margin:0 1px;
+            position: relative;
+            top:-5px;
+            outline: none;
+            @include size(23px,15px);
+            @include border_style($c:#cacaca );
+            @include font-set(12px,500, 15px ,#6B6B6B,center);
+        }
+    }
+    div.weight,div.xianhuo,div.youhui{
+        @include size(100px,20px);
+        @include font-set(12px,500 ,20px ,#6B6B6B,center);
+    }
+    div.xianhuo{width:80px}
+    a.shoucang,a.del{
+        @include font-set(12px,500 ,20px ,#6B6B6B,center);
+        padding:0 5px;
+        
+    }
+    a.shoucang:hover,a.del:hover{
+        color:#81A84A;
+    }
+}
+.zongji{
+    height:20px;
+    margin-top: 10px;
+    padding:15px 10px;
+    @include border_style($c:#dadada );
+    
+    .cha{
+        margin-left: 10px;
+    }
+    input{
+        border:0;
+        text-indent: 20px;
+        margin-left: 10px;
+        @include size(128px,18px );
+        @include font-set(13px,500 ,18px ,#6B6B6B);
+        background: url(../img/cartbg.gif) no-repeat scroll 0 -105px;
+        
+    }
+    .money{
+        position: relative;
+        top:-10px;
+        div{
+            margin-left: 10px;
+        }
+        div.cartPrice{
+            margin-left: 30px;
+            position: relative;
+            top:-3px;
+        };
+        @include font-set(12px,500 ,38px ,#565656);
+        span.cartPrice{
+            @include font-set(22px,500 ,38px ,#EA5404);
+        }
+    }
+}
+div.jiesuan{
+    height:45px;
+    padding:10px;
+    input.jiesuan{
+        @include size(150px,45px );
+        @include font-set(16px,600 ,45px ,#fff,center);
+        background:#6e9b0c;
+        border:0;
+        cursor:pointer;
+    }
+    input.zaiguang{
+        @include size(73px,28px );
+        @include font-set(13px,500 ,28px ,#666666,center);
+        background:orange;
+        border:0;
+        margin-right: 20px;
+        position: relative;        
+        top:10px;
+        cursor:pointer;
+    }
+}
+
+div.tuijian{
+    height:355px;
+    margin-top:30px;
+    .header{
+        height:32px;
+        border-bottom:2px solid #629c00;
+        @include font-set(12px,500 ,32px ,#fff,center);
+        span{
+        display:block;
+            @include size(100px,32px);
+            background:#629c00;
+        }
+    }
+}
+div.tuijian .content{
+    height:320px;
+    border-bottom:1px solid #e0e0e0;
+    position:relative;
+    a.left,a.right{
+        position:absolute;
+        @include size(35px,50px);
+        @include font-set(30px,600 ,50px ,#fff,center);
+        @include opa(0.7);
+        @include border-radius(5px);
+        background:#b2b2b2;
+        top:50%;
+        margin-top:-30px;
+        z-index:100;
+        cursor:pointer;
+    }
+    a.right{
+        right:0
+    }
+    ul.nav{
+        z-index:500;
+        position:absolute;
+        @include size(200px,18px);
+        bottom:25px;
+        left:50%;
+        margin-left:-100px;
+        li{
+            float:left;
+            @include size(10px,10px);
+            @include border-radius(50%);
+            margin:5px;
+            background: #c5c5c5;
+            cursor:pointer;
+        }
+        li.green{
+            background:#629c00;
+        }
+    }
+
+    ul.goods_ul{
+        position:absolute;
+        top:0;
+        left:0;
+    }
+    ul.goods_ul li{
+        float:left;
+        width:180px;
+        height:248px;
+        padding:20px 10px;
+        a.image{
+            display:block;
+            width:180px;
+            height:180px;
+            position: relative;
+            overflow:hidden;
+
+            div.add_cart{
+                position:absolute;
+                bottom:-20px;
+                width:100%;
+                height:20px;
+                background: #629c00;
+                @include font-set(12px,500,20px ,#fff,center );
+                @include border-radius(3px);
+            }
+        }
+        div.title{
+            height:45px;
+            width:90%;
+            overflow: hidden;
+            margin-top:5px;
+            @include font-set(12px,500 ,20px ,#565656 )
+        }
+        div.price{
+            @include font-set(14px,600,26px,#f33f00);
+        }    
+        
+    }
+}
+
+div.none{
+    height:50px;
+    background:#f5f5f5;
+    padding:15px 0;
+    p.go_shop{
+        @include font-set(12px,600 ,25px ,#565656,center);
+        a{
+            font-weight:500;
+            color:#565656;
+        }
+    }
+    p.login{
+        @include font-set(12px,500 ,25px ,#565656,center);
+        a{
+        color:#6f9a09;
+        }
+    }
+}
